@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3 text-center mt-4">
+    <h1>Books</h1>
+</div>
+<div class='row px-5'>
+    
+    <form id="filter-form" class="form-inline mb-3 d-flex justify-content-between">
+        <select id="author-select" class="form-control w-25">
+            <option value="">All Authors</option>
+            {% for author in authors %}
+                <option value="{{ author.id }}">
+                    {{ author.name }}
+                </option>
+            {% endfor %}
+        </select>
+        {% comment %} <button type="submit" class="btn btn-primary pull-right">Filter</button> {% endcomment %}
+        <a href="{% url "add_book" %}" class="btn btn-primary float-right">Add Book</a>
+    </form>
+</div>
+
+<div class="table-responsive px-5">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Published date</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Price</th>
+            <th scope="col" class="text-center">ID</th>
+          </tr>
+        </thead>
+        <tbody id="book-list">
+          
+            {% if books %}
+                {% for book in books %}
+                    <tr data-author-id="{{ book.author.id }}">
+                        <td scope="row">{{ book.title }}</td>
+                        <td scope="row">{{ book.author }}</td>
+                        <td scope="row">{{ book.published_date }}</td>
+                        <td scope="row">{{ book.isbn }}</td>
+                        <td scope="row">{{ book.price }}</td>
+                        <td scope="row" class="text-center"><a href="{% url "book_detail" book.id %}">{{ book.id }}</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+      </table>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let authorSelect = document.getElementById('author-select');
+        let bookRows = document.querySelectorAll('#book-list tr');
+
+        authorSelect.addEventListener('change', function() {
+            let selectedAuthor = this.value;
+            bookRows.forEach(function(row) {
+                let authorId = row.getAttribute('data-author-id');
+                /* console.log("Author ID for current row:", authorId); */
+                if (selectedAuthor === '' || authorId === selectedAuthor) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock content %}

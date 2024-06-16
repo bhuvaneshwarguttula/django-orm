@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-1 mt-3">
+    <h1>Add Author</h1>
+    <br/>
+    <div class="w-50">
+        <form action="{% url "add_author" %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="{% url "author" %}" class="btn btn-primary">Back</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

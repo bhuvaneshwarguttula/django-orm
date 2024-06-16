@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-1 mt-3">
+    <h1>Author Details</h1>
+    <br/>
+    <div class="card">
+        <div class="card-header">
+            {{ author.name }}
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>DOB: </strong>{{ author.date_of_birth }}</p>
+            <p class="card-text"><strong>ID: </strong>{{ author.id }}</p>
+            <br/>
+            <a href="{% url "author" %}" class="btn btn-primary">Back</a>
+            <a href="{% url "update_author" author.id%}" class="btn btn-primary">Update</a>
+            <a href="{% url "delete_author" author.id%}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+</div>
+
+{% endblock content %}

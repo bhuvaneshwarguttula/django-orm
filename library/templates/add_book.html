@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-1 mt-3">
+    <h1>Add Book</h1>
+    <br/>
+    <div class="w-50">
+        <form action="{% url "add_book" %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="{% url "book" %}" class="btn btn-primary">Back</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

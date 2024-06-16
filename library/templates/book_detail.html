@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-1 mt-3">
+    <h1>Book Details</h1>
+    <br/>
+    <div class="card">
+        <div class="card-header">
+            {{ book.title }}
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+            <p class="card-text"><strong>Published date:</strong> {{ book.published_date }}</p>
+            <p class="card-text"><strong>ISBN:</strong> {{ book.isbn }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ book.price }}</p>
+            <p class="card-text"><strong>ID:</strong> {{ book.id }}</p>
+            <br/>
+            <a href="{% url "book" %}" class="btn btn-primary">Back</a>
+            <a href="{% url "update_book" book.id%}" class="btn btn-primary">Update</a>
+            <a href="{% url "delete_book" book.id%}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% comment %} {{ book.title }} <br/>
+    {{ book.author }} <br/>
+    {{ book.published_date }} <br/>
+    {{ book.isbn }} <br/>
+    {{ book.price }} <br/>
+    {{ book.id }} <br/> {% endcomment %}
+    {% comment %} <a href="{% url "book" %}" class="btn btn-primary">Back</a>
+    <a href="{% url "update_book" book.id%}" class="btn btn-primary">Update</a>
+    <a href="{% url "delete_book" book.id%}" class="btn btn-danger">Delete</a> {% endcomment %}
+</div>
+
+{% endblock content %}
