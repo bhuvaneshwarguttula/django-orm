@@ -15,7 +15,7 @@ git clone https://github.com/bhuvaneshwarguttula/django-orm.git
 
 Move into the directory where we have the project files : 
 ```bash
-cd Django-React-NotesApp
+cd django-orm
 
 ```
 
