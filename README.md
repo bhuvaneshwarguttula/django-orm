@@ -1,9 +1,39 @@
-# ORM application
-Orm application using Python and Django
+<div align="center">
 
-# To get started
-1. Clone this project
-2. Install the requirements
-   `pip install -r requirements.txt`
-4. To start the development server
-   `python manage.py runserver`
+# Django ORM application
+</div>
+
+## Orm application using Python and Django
+
+### Cloning the repository
+
+Clone the repository using the command below :
+```bash
+git clone https://github.com/bhuvaneshwarguttula/django-orm.git
+
+```
+
+Move into the directory where we have the project files : 
+```bash
+cd Django-React-NotesApp
+
+```
+
+Install the required packages :
+```bash
+pip install -r requirements.txt
+
+```
+
+#
+
+### Running the App
+
+To run the Notes App, we use :
+```bash
+python manage.py runserver
+```
+
+> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
+
+#
