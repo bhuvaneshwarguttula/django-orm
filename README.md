@@ -3,7 +3,7 @@
 # Django ORM application
 </div>
 
-## Orm application using Python and Django
+## ORM application using Python and Django
 
 ### Cloning the repository
 
